@@ -1,28 +1,59 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav class="main-nav">
+      <OpenSidebar />
+    </nav>
+    <Sidebar />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import OpenSidebar from "@/components/OpenSidebar.vue";
+import Sidebar from "@/components/Sidebar.vue";
 
 export default {
-  name: 'App',
+  name: "app",
   components: {
-    HelloWorld
+    OpenSidebar,
+    Sidebar
   }
-}
+};
 </script>
 
 <style>
+@font-face {
+  font-family: "Amatic_SC";
+  src: url("assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Josefin_Sans";
+  src: url("assets/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf");
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.25s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-color: whitesmoke;
+  color: #4f3f84;
+}
+
+.main-nav {
+  display: flex;
 }
 </style>

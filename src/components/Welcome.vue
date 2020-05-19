@@ -1,12 +1,15 @@
 <template>
   <div class="welcome">
-    <h4>Hole in... what?</h4>
+    <h4>
+      <span class="darker">Hole in</span>...
+      <span class="darker">what</span>?
+    </h4>
     <p>
       Start a competition with friends with the click of a button.
       <br />Here for a club? Hit the menu icon in the top left to get started.
     </p>
 
-    <router-link class="button" to="/room">
+    <router-link class="button" :to="generatePath()">
       <div class="inner-button">go</div>
     </router-link>
   </div>
@@ -15,12 +18,18 @@
 <script>
 export default {
   name: "Welcome",
-  props: {}
+  methods: {
+    generatePath: function() {
+      var basePath = "/room/";
+      var id = new Date().valueOf();
+      return basePath + id.toString();
+    }
+  }
 };
 </script>
 
 <style scoped>
-* {
+*:not(.darker) {
   text-align: left;
   margin-left: 10vw;
 }
@@ -33,13 +42,20 @@ h4 {
   font-size: 3em;
   font-size: 7vw;
   font-family: "Amatic_SC";
-  margin-bottom: 0px;
+  margin-bottom: 80px;
+  margin-bottom: 4vw;
 }
 
 p {
   font-family: "Josefin_Sans";
   font-size: 1.3em;
   font-size: 2.1vw;
+  margin-bottom: 40px;
+  margin-bottom: 2vw;
+}
+
+.darker {
+  color: #ff662a;
 }
 
 .inner-button {
@@ -78,5 +94,6 @@ p {
 
 .button {
   margin-left: 0;
+  margin-top: 0;
 }
 </style>

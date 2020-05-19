@@ -30,7 +30,16 @@ export default {
   background-color: whitesmoke;
   color: #4f3f84;
   border-width: 0;
+  line-height: 1;
+  padding-left: 18px;
+  padding-left: 1.5vw;
+  padding-top: 15px;
+  padding-top: 1.17vw;
   transition: 0.5s;
+}
+
+.plus-button:focus {
+  outline: none;
 }
 
 .plus-button:hover {

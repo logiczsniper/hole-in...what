@@ -5,7 +5,7 @@
     <transition name="slide">
       <div v-if="isPanelOpen" class="sidebar-panel">
         <span @click="closeSidebarPanel">
-          <router-link to="/">Home</router-link>
+          <HomeButton />
         </span>
         <slot></slot>
       </div>
@@ -15,6 +15,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import HomeButton from "@/components/HomeButton.vue";
 
 export default {
   name: "Sidebar",
@@ -26,6 +27,9 @@ export default {
     closeSidebarPanel: function() {
       this.togglePanel();
     }
+  },
+  components: {
+    HomeButton
   }
 };
 </script>
@@ -49,12 +53,11 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  cursor: pointer;
 }
 
 .sidebar-panel {
   border-radius: 0px 8px 8px 0px;
-  border-radius: 0vw 0.9vw 0.9vw 0vw;
+  border-radius: 0vw 3vw 3vw 0vw;
   overflow-y: auto;
   background-color: #4f3f84;
   position: fixed;
